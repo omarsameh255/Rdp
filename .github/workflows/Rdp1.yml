@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: Download and extract Ngrok
       run: |
-        Invoke-WebRequest "https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-stable-windows-amd64.zip" -OutFile ngrok.zip
+        Invoke-WebRequest "https://downloads.ngrok.com/linux/ngrok-v3-stable-windows-amd64.zip" -OutFile ngrok.zip
         Expand-Archive ngrok.zip -DestinationPath .
         Remove-Item ngrok.zip -Force
 
