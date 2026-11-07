@@ -43,7 +43,7 @@ jobs:
           try {
             $response = Invoke-RestMethod -Uri "http://localhost:4040/api/tunnels" -ErrorAction Stop
             $tunnelUrl = $response.tunnels[0].public_url -replace "tcp://", ""
-          } catz,ch {
+          } catch {
             $logContent = Get-Content ngrok.log -ErrorAction SilentlyContinue
             $tunnelUrl = $logContent | Select-String -Pattern "tcp://([a-zA-Z0-9\.\-]+:\d+)" | ForEach-Object { $_.Matches.Groups[1].Value }
           }
